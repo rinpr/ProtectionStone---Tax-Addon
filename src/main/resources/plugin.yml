@@ -1,0 +1,7 @@
+name: MoreTaxAddon
+version: '${project.version}'
+main: net.java_rin.moretaxaddon.MoreTaxAddon
+api-version: '1.20'
+depend:
+  - Vault
+  - ProtectionStones
