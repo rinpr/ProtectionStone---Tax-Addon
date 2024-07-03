@@ -1,6 +1,6 @@
 package net.java_rin.moretaxaddon.listeners;
 
-import dev.espi.protectionstones.event.PSRemoveEvent;
+import dev.espi.protectionstones.event.PSBreakEvent;
 import net.java_rin.moretaxaddon.MoreTaxAddon;
 import net.java_rin.moretaxaddon.config.ConfigurationManager;
 import org.bukkit.ChatColor;
@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 public class PlayerListeners implements Listener {
 
     @EventHandler
-    public void ps_rm_e(PSRemoveEvent e) {
+    public void ps_rm_e(PSBreakEvent e) {
         Player p = e.getPlayer();
         double pb = MoreTaxAddon.economy.getBalance(p);
 
