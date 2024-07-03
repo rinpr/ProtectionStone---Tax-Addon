@@ -1,10 +1,13 @@
 package net.java_rin.moretaxaddon;
 
+import net.java_rin.moretaxaddon.command.MoreTaxCommand;
 import net.java_rin.moretaxaddon.config.ConfigurationManager;
 import net.java_rin.moretaxaddon.hooks.implementation.VaultEconomyHook;
 import net.java_rin.moretaxaddon.listeners.PlayerListeners;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class MoreTaxAddon extends JavaPlugin {
 
@@ -30,9 +33,7 @@ public final class MoreTaxAddon extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListeners(), plugin);
     }
 
-    private void registerCommand() {
-        System.out.println("Command here");
-    }
+    private void registerCommand() { Objects.requireNonNull(this.getCommand("moretaxaddon")).setExecutor(new MoreTaxCommand()); }
 
     public static MoreTaxAddon getPlugin() {
         return plugin;
