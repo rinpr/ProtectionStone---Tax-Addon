@@ -33,7 +33,7 @@ public class PlayerListeners implements Listener {
         Block b = e.getBlockPlaced();
         if (!ConfigurationManager.NOT_ALLOWED_WORLDS.contains(b.getLocation().getWorld())) return;
         Player p = e.getPlayer();
-        if (!ProtectionStoneHook.isPSBlock(b)) {
+        if (!ProtectionStoneHook.isPSBlock(b, e.getItemInHand())) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', ConfigurationManager.NOT_ALLOWED_PLACE_MESSAGE));
             e.setCancelled(true);
         }
