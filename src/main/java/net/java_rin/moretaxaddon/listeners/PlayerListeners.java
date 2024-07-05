@@ -24,7 +24,6 @@ public class PlayerListeners implements Listener {
             return;
         }
 
-        // todo: fix this event fired twice
         MoreTaxAddon.economy.withdrawPlayer(p, ConfigurationManager.BREAK_COST);
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', ConfigurationManager.SUCCESS_PAID_MESSAGE.replace("{amount}", String.valueOf(ConfigurationManager.BREAK_COST))));
     }
