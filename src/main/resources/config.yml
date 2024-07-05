@@ -1,4 +1,12 @@
 protection-stone:
+  # ProtectionStone break cost
   break-cost: 100.0
   insufficient-money-message: "&cYou don't have enough money!"
   paid-message: "&aYou've paid {amount} to break the protection stone!"
+force-protection-stone:
+  not-allowed-place-message: "&cYou are not allowed to place any other block than protection stones here!"
+  # The world that you want to force the rule "Not allowed not place other block than protectionstone"
+  not-allowed-world:
+    - world
+    - world_nether
+    - world_the_end
