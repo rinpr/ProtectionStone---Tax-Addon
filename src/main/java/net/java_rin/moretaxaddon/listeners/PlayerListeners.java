@@ -9,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 public class PlayerListeners implements Listener {
@@ -29,7 +30,7 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
-    public void ps_p_e(BlockPlaceEvent e) {
+    public void bpe(BlockPlaceEvent e) {
         Block b = e.getBlockPlaced();
         if (!ConfigurationManager.NOT_ALLOWED_WORLDS.contains(b.getLocation().getWorld())) return;
         Player p = e.getPlayer();
@@ -38,5 +39,15 @@ public class PlayerListeners implements Listener {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', ConfigurationManager.NOT_ALLOWED_PLACE_MESSAGE));
             e.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void bbe(BlockBreakEvent e) {
+        Block b = e.getBlock();
+        if (!ConfigurationManager.NOT_ALLOWED_WORLDS.contains(b.getLocation().getWorld())) return;
+        Player p = e.getPlayer();
+        if (ProtectionStoneHook.isInPSRegion(b.getLocation())) return;
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', ConfigurationManager.NOT_ALLOWED_PLACE_MESSAGE));
+        e.setCancelled(true);
     }
 }
