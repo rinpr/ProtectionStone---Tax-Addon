@@ -1,6 +1,6 @@
 package net.java_rin.moretaxaddon.listeners;
 
-import dev.espi.protectionstones.event.PSBreakEvent;
+import dev.espi.protectionstones.event.PSBreakProtectBlockEvent;
 import net.java_rin.moretaxaddon.MoreTaxAddon;
 import net.java_rin.moretaxaddon.config.ConfigurationManager;
 import net.java_rin.moretaxaddon.hooks.implementation.ProtectionStoneHook;
@@ -15,7 +15,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 public class PlayerListeners implements Listener {
 
     @EventHandler
-    public void ps_rm_e(PSBreakEvent e) {
+    public void ps_rm_e(PSBreakProtectBlockEvent e) {
         Player p = e.getPlayer();
         double pb = MoreTaxAddon.economy.getBalance(p);
 
